@@ -28,7 +28,7 @@ std::string infx2pstfx(std::string inf) {
             } else if (ch == '(' || map_st.isEmpty()) {
                 map_st.push(ch);
             } else if (map[ch] > map[map_st.get()]) {
-                map_stk.push(ch);
+                map_st.push(ch);
             } else {
                 while (!map_st.isEmpty() && map[map_st.get()] >= map[ch]) {
                     line += map_st.get();
