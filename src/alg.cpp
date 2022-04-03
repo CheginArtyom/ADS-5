@@ -4,7 +4,7 @@
 #include "tstack.h"
 
 std::string infx2pstfx(std::string inf) {
-  T_Stack<char, 20> map_Stack;
+  T_Stack<char, 20> map_st;
     std::string line;
     std::map<char, int> map;
     map['('] = 0;
@@ -19,30 +19,30 @@ std::string infx2pstfx(std::string inf) {
             line += ' ';
         } else {
             if (ch == ')') {
-                while (map_Stack.get() != '(') {
-                    line += map_Stack.get();
+                while (map_st.get() != '(') {
+                    line += map_st.get();
                     line += ' ';
-                    map_Stack.pop();
+                    map_st.pop();
                 }
-                map_Stack.pop();
-            } else if (ch == '(' || map_Stack.isEmpty()) {
-                map_Stack.push(ch);
-            } else if (map[ch] > map[map_Stack.get()]) {
-                map_Stack.push(ch);
+                map_st.pop();
+            } else if (ch == '(' || map_st.isEmpty()) {
+                map_st.push(ch);
+            } else if (map[ch] > map[map_st.get()]) {
+                map_stk.push(ch);
             } else {
-                while (!map_Stack.isEmpty() && map[map_Stack.get()] >= map[ch]) {
-                    line += map_Stack.get();
+                while (!map_st.isEmpty() && map[map_st.get()] >= map[ch]) {
+                    line += map_st.get();
                     line += ' ';
-                    map_Stack.pop();
+                    map_st.pop();
                 }
-                map_Stack.push(ch);
+                map_st.push(ch);
             }
         }
     }
-    while (!map_Stack.isEmpty()) {
-        line += map_Stack.get();
+    while (!map_st.isEmpty()) {
+        line += map_st.get();
         line += ' ';
-        map_Stack.pop();
+        map_st.pop();
     }
     line.pop_back();
     return line;
