@@ -3,13 +3,13 @@
 #define INCLUDE_TSTACK_H_
 
 template<class T, int size>
-class TStack {
+class T_Stack {
  private:
   T arr[20];
   int top;
 
  public:
-  TStack() : top(-1) { }
+  T_Stack() : top(-1) { }
   T get() const {
   return arr[top];
   }
